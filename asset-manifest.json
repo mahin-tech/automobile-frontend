@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/mahin-tech/automobile-frontend/static/js/main.e2aff60f.chunk.js",
+    "main.js.map": "/mahin-tech/automobile-frontend/static/js/main.e2aff60f.chunk.js.map",
+    "runtime-main.js": "/mahin-tech/automobile-frontend/static/js/runtime-main.4b67c2cb.js",
+    "runtime-main.js.map": "/mahin-tech/automobile-frontend/static/js/runtime-main.4b67c2cb.js.map",
+    "static/js/2.192f8f05.chunk.js": "/mahin-tech/automobile-frontend/static/js/2.192f8f05.chunk.js",
+    "static/js/2.192f8f05.chunk.js.map": "/mahin-tech/automobile-frontend/static/js/2.192f8f05.chunk.js.map",
+    "index.html": "/mahin-tech/automobile-frontend/index.html",
+    "static/js/2.192f8f05.chunk.js.LICENSE.txt": "/mahin-tech/automobile-frontend/static/js/2.192f8f05.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4b67c2cb.js",
+    "static/js/2.192f8f05.chunk.js",
+    "static/js/main.e2aff60f.chunk.js"
+  ]
+}
