@@ -1,2 +1,0 @@
-(this["webpackJsonpautomobile-frontend"]=this["webpackJsonpautomobile-frontend"]||[]).push([[0],{9:function(e,t,o){"use strict";o.r(t);var n=o(1),r=(o(0),o(3)),c=function(){return Object(n.jsx)("div",{children:"Automobile App"})};o.n(r).a.render(Object(n.jsx)(c,{}),document.querySelector("#root"))}},[[9,1,2]]]);
-//# sourceMappingURL=main.e2aff60f.chunk.js.map

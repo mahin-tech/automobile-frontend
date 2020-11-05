@@ -1,17 +1,20 @@
 {
   "files": {
-    "main.js": "/automobile-frontend/static/js/main.e2aff60f.chunk.js",
-    "main.js.map": "/automobile-frontend/static/js/main.e2aff60f.chunk.js.map",
+    "main.css": "/automobile-frontend/static/css/main.d56fef5e.chunk.css",
+    "main.js": "/automobile-frontend/static/js/main.72635e5d.chunk.js",
+    "main.js.map": "/automobile-frontend/static/js/main.72635e5d.chunk.js.map",
     "runtime-main.js": "/automobile-frontend/static/js/runtime-main.2fd9b3f3.js",
     "runtime-main.js.map": "/automobile-frontend/static/js/runtime-main.2fd9b3f3.js.map",
-    "static/js/2.192f8f05.chunk.js": "/automobile-frontend/static/js/2.192f8f05.chunk.js",
-    "static/js/2.192f8f05.chunk.js.map": "/automobile-frontend/static/js/2.192f8f05.chunk.js.map",
+    "static/js/2.74004a5f.chunk.js": "/automobile-frontend/static/js/2.74004a5f.chunk.js",
+    "static/js/2.74004a5f.chunk.js.map": "/automobile-frontend/static/js/2.74004a5f.chunk.js.map",
     "index.html": "/automobile-frontend/index.html",
-    "static/js/2.192f8f05.chunk.js.LICENSE.txt": "/automobile-frontend/static/js/2.192f8f05.chunk.js.LICENSE.txt"
+    "static/css/main.d56fef5e.chunk.css.map": "/automobile-frontend/static/css/main.d56fef5e.chunk.css.map",
+    "static/js/2.74004a5f.chunk.js.LICENSE.txt": "/automobile-frontend/static/js/2.74004a5f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2fd9b3f3.js",
-    "static/js/2.192f8f05.chunk.js",
-    "static/js/main.e2aff60f.chunk.js"
+    "static/js/2.74004a5f.chunk.js",
+    "static/css/main.d56fef5e.chunk.css",
+    "static/js/main.72635e5d.chunk.js"
   ]
 }
