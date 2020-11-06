@@ -30,7 +30,8 @@ class BrandList extends React.Component {
             latitude: null,
             longitude: null,
             rowData: [],
-            searchLocation: []
+            searchLocation: [],
+            searchData: []
         }
     }
     getLocation = () => {
@@ -67,6 +68,13 @@ class BrandList extends React.Component {
         this.setState({ searchLocation: result })
     };
 
+    onSearchChange = (abc) => {
+        this.props.dispatch(globalActions.getSearch(abc)).then((response) => {
+            let searchData = response.data;
+            this.setState({ searchData: this.state.rowData });
+        });
+    }
+
     componentDidMount = () => {
         this.props.dispatch(globalActions.getBrand()).then((res) => {
             let rowData = res.data;
@@ -90,6 +98,8 @@ class BrandList extends React.Component {
                                             type="text"
                                             id="brand"
                                             placeholder="Search showroom"
+                                            onChange={(e) => this.onSearchChange(e.target.value)}
+                                            value={this.state.value}
                                         />
                                         <p>{this.state.searchLocation}</p>
                                         <InputGroupAddon addonType="append">
@@ -100,8 +110,8 @@ class BrandList extends React.Component {
                                     </InputGroup>
                                 </Col>
                                 <Row className="pt-4">
-                                    {this.state.rowData &&
-                                        this.state.rowData.map((item, index) => {
+                                    {this.state.searchData &&
+                                        this.state.searchData.map((item, index) => {
                                             return (
                                                 <Col lg="4" sm="12" key={index}>
                                                     <Card

@@ -8,8 +8,8 @@ export const getBrand = () => async (dispatch) => {
     return response
 }
 
-export const getSearch = () => async (dispatch) => {
-    const response = await axios.get('/search')
+export const getSearch = (search) => async (dispatch) => {
+    const response = await axios.get(`/search/${search}`)
     if (response) {
         dispatch({ type: "GET_SEARCH", payload: response.data })
     }
