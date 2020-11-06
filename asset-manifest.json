@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/automobile-frontend/static/css/main.f4a0e343.chunk.css",
-    "main.js": "/automobile-frontend/static/js/main.11f1ba20.chunk.js",
-    "main.js.map": "/automobile-frontend/static/js/main.11f1ba20.chunk.js.map",
+    "main.js": "/automobile-frontend/static/js/main.d660cb0a.chunk.js",
+    "main.js.map": "/automobile-frontend/static/js/main.d660cb0a.chunk.js.map",
     "runtime-main.js": "/automobile-frontend/static/js/runtime-main.2fd9b3f3.js",
     "runtime-main.js.map": "/automobile-frontend/static/js/runtime-main.2fd9b3f3.js.map",
     "static/css/2.95f25948.chunk.css": "/automobile-frontend/static/css/2.95f25948.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.95f25948.chunk.css",
     "static/js/2.740bf0ec.chunk.js",
     "static/css/main.f4a0e343.chunk.css",
-    "static/js/main.11f1ba20.chunk.js"
+    "static/js/main.d660cb0a.chunk.js"
   ]
 }
