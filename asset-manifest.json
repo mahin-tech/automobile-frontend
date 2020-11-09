@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/automobile-frontend/static/css/main.f4a0e343.chunk.css",
-    "main.js": "/automobile-frontend/static/js/main.d102ee4e.chunk.js",
-    "main.js.map": "/automobile-frontend/static/js/main.d102ee4e.chunk.js.map",
+    "main.js": "/automobile-frontend/static/js/main.8d1efb66.chunk.js",
+    "main.js.map": "/automobile-frontend/static/js/main.8d1efb66.chunk.js.map",
     "runtime-main.js": "/automobile-frontend/static/js/runtime-main.2fd9b3f3.js",
     "runtime-main.js.map": "/automobile-frontend/static/js/runtime-main.2fd9b3f3.js.map",
     "static/css/2.95f25948.chunk.css": "/automobile-frontend/static/css/2.95f25948.chunk.css",
-    "static/js/2.96f4e80a.chunk.js": "/automobile-frontend/static/js/2.96f4e80a.chunk.js",
-    "static/js/2.96f4e80a.chunk.js.map": "/automobile-frontend/static/js/2.96f4e80a.chunk.js.map",
+    "static/js/2.cbe16b99.chunk.js": "/automobile-frontend/static/js/2.cbe16b99.chunk.js",
+    "static/js/2.cbe16b99.chunk.js.map": "/automobile-frontend/static/js/2.cbe16b99.chunk.js.map",
     "index.html": "/automobile-frontend/index.html",
     "static/css/2.95f25948.chunk.css.map": "/automobile-frontend/static/css/2.95f25948.chunk.css.map",
     "static/css/main.f4a0e343.chunk.css.map": "/automobile-frontend/static/css/main.f4a0e343.chunk.css.map",
-    "static/js/2.96f4e80a.chunk.js.LICENSE.txt": "/automobile-frontend/static/js/2.96f4e80a.chunk.js.LICENSE.txt"
+    "static/js/2.cbe16b99.chunk.js.LICENSE.txt": "/automobile-frontend/static/js/2.cbe16b99.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2fd9b3f3.js",
     "static/css/2.95f25948.chunk.css",
-    "static/js/2.96f4e80a.chunk.js",
+    "static/js/2.cbe16b99.chunk.js",
     "static/css/main.f4a0e343.chunk.css",
-    "static/js/main.d102ee4e.chunk.js"
+    "static/js/main.8d1efb66.chunk.js"
   ]
 }
