@@ -15,3 +15,8 @@ export const getSearch = (search) => async (dispatch) => {
     }
     return response
 }
+
+export const getLocationBrand = (lng, lat) => async (dispatch) => {
+    const response = await axios.get(`/location?lng=${lng}&lat=${lat}`)
+    return response
+}

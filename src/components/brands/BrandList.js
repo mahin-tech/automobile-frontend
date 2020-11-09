@@ -27,10 +27,9 @@ class BrandList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            latitude: null,
-            longitude: null,
+            latitude: "",
+            longitude: "",
             rowData: [],
-            searchLocation: [],
             searchData: []
         }
     }
@@ -61,11 +60,13 @@ class BrandList extends React.Component {
             default:
         }
     };
-    getCoordinates = (postion) => {
-        const data = postion.coords.latitude
-        const xyz = postion.coords.longitude
-        const result = data + ' , ' + xyz
-        this.setState({ searchLocation: result })
+    getCoordinates = (position) => {
+        const data = position.coords.latitude
+        const xyz = position.coords.longitude
+        this.props.dispatch(globalActions.getLocationBrand(xyz, data)).then((res) => {
+            let data = res.data
+            this.setState({ data })
+        })
     };
 
     onSearchChange = (abc) => {
@@ -80,6 +81,7 @@ class BrandList extends React.Component {
             let rowData = res.data;
             this.setState({ rowData });
         });
+        this.getLocation()
     };
     render() {
         return (
@@ -109,9 +111,8 @@ class BrandList extends React.Component {
                                     </InputGroup>
                                 </Col>
                                 <Row className="pt-4">
-                                    {this.state.rowData ?
-                                        this.state.rowData &&
-                                        this.state.rowData.map((item, index) => {
+                                    {this.state.rowData && this.state.rowData.length > 0
+                                        ? this.state.rowData.map((item, index) => {
                                             return (
                                                 <Col lg="4" sm="12" key={index}>
                                                     <Card
@@ -171,70 +172,8 @@ class BrandList extends React.Component {
                                                     </Card>
                                                 </Col>
                                             );
-                                        }) :
-                                        this.state.searchData &&
-                                        this.state.searchData.map((item, index) => {
-                                            return (
-                                                <Col lg="4" sm="12" key={index}>
-                                                    <Card
-                                                        body
-                                                        outline
-                                                        style={{ borderColor: "#333" }}
-                                                        className="mt-4"
-                                                    >
-                                                        <CardHeader className="justify-content-between">
-                                                            <div className="card-heading">
-                                                                <CardTitle>
-                                                                    <h6>
-                                                                        <strong>
-                                                                            {item.brandName}
-                                                                        </strong>
-                                                                    </h6>
-                                                                </CardTitle>
-                                                                <CardText>
-                                                                    <CardLink
-                                                                        href={item.locationLink}
-                                                                    >
-                                                                        <MapPin size="15" />{" "}
-                                                                        &nbsp; Find Location
-                                                                    </CardLink>
-                                                                </CardText>
-                                                            </div>
-                                                        </CardHeader>
-                                                        <CardBody>
-                                                            <CardImg
-                                                                variant="bottom"
-                                                                src={
-                                                                    IMG.baseURL +
-                                                                    "" +
-                                                                    item.branchLogo
-                                                                }
-                                                            />
-                                                            <hr />
-                                                            <div className="justify-content-between">
-                                                                <i>Branch Name:&nbsp;&nbsp;</i>
-                                                                <span className="text-success">
-                                                                    {item.branchName}
-                                                                </span>
-                                                                <br />
-                                                                <br />
-                                                                <i>Location:&nbsp;&nbsp;</i>
-                                                                <span className="text-secondary">
-                                                                    {item.location}
-                                                                </span>
-                                                                <br />
-                                                                <br />
-                                                                <i>Contact:&nbsp;&nbsp;</i>
-                                                                <span className="text-info">
-                                                                    {item.contact}
-                                                                </span>
-                                                            </div>
-                                                        </CardBody>
-                                                    </Card>
-                                                </Col>
-                                            );
-                                        })}
-
+                                        })
+                                        : "No showroom found near you!"}
                                 </Row>
                             </Col>
                         </CardBody>
