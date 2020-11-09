@@ -70,8 +70,8 @@ class BrandList extends React.Component {
 
     onSearchChange = (abc) => {
         this.props.dispatch(globalActions.getSearch(abc)).then((response) => {
-            let searchData = response.data;
-            this.setState({ searchData: this.state.rowData });
+            let rowData = response.data.brandData;
+            this.setState({ rowData });
         });
     }
 
@@ -99,7 +99,6 @@ class BrandList extends React.Component {
                                             id="brand"
                                             placeholder="Search showroom"
                                             onChange={(e) => this.onSearchChange(e.target.value)}
-                                            value={this.state.value}
                                         />
                                         <p>{this.state.searchLocation}</p>
                                         <InputGroupAddon addonType="append">
@@ -110,7 +109,70 @@ class BrandList extends React.Component {
                                     </InputGroup>
                                 </Col>
                                 <Row className="pt-4">
-                                    {this.state.searchData &&
+                                    {this.state.rowData ?
+                                        this.state.rowData &&
+                                        this.state.rowData.map((item, index) => {
+                                            return (
+                                                <Col lg="4" sm="12" key={index}>
+                                                    <Card
+                                                        body
+                                                        outline
+                                                        style={{ borderColor: "#333" }}
+                                                        className="mt-4"
+                                                    >
+                                                        <CardHeader className="justify-content-between">
+                                                            <div className="card-heading">
+                                                                <CardTitle>
+                                                                    <h6>
+                                                                        <strong>
+                                                                            {item.brandName}
+                                                                        </strong>
+                                                                    </h6>
+                                                                </CardTitle>
+                                                                <CardText>
+                                                                    <CardLink
+                                                                        href={item.locationLink}
+                                                                    >
+                                                                        <MapPin size="15" />{" "}
+                                                                            &nbsp; Find Location
+                                                                        </CardLink>
+                                                                </CardText>
+                                                            </div>
+                                                        </CardHeader>
+                                                        <CardBody>
+                                                            <CardImg
+                                                                variant="bottom"
+                                                                src={
+                                                                    IMG.baseURL +
+                                                                    "" +
+                                                                    item.branchLogo
+                                                                }
+                                                            />
+                                                            <hr />
+                                                            <div className="justify-content-between">
+                                                                <i>Branch Name:&nbsp;&nbsp;</i>
+                                                                <span className="text-success">
+                                                                    {item.branchName}
+                                                                </span>
+                                                                <br />
+                                                                <br />
+                                                                <i>Location:&nbsp;&nbsp;</i>
+                                                                <span className="text-secondary">
+                                                                    {item.location}
+                                                                </span>
+                                                                <br />
+                                                                <br />
+                                                                <i>Contact:&nbsp;&nbsp;</i>
+                                                                <span className="text-info">
+                                                                    {item.contact}
+                                                                </span>
+                                                            </div>
+                                                        </CardBody>
+                                                    </Card>
+                                                </Col>
+                                            );
+                                        }) :
+                                        this.state.searchData &&
                                         this.state.searchData.map((item, index) => {
                                             return (
                                                 <Col lg="4" sm="12" key={index}>
@@ -144,7 +206,7 @@ class BrandList extends React.Component {
                                                                 variant="bottom"
                                                                 src={
                                                                     IMG.baseURL +
-                                                                    "/" +
+                                                                    "" +
                                                                     item.branchLogo
                                                                 }
                                                             />
@@ -172,6 +234,7 @@ class BrandList extends React.Component {
                                                 </Col>
                                             );
                                         })}
+
                                 </Row>
                             </Col>
                         </CardBody>
