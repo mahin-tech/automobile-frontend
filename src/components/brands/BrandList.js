@@ -19,6 +19,7 @@ import {
     InputGroupText,
 } from 'reactstrap'
 import { connect } from 'react-redux'
+import { history } from '../../history'
 import * as globalActions from '../../actions/brandGlobal'
 import IMG from '../../config/imageConfig'
 import { MapPin } from 'react-feather'
@@ -61,9 +62,9 @@ class BrandList extends React.Component {
         }
     };
     getCoordinates = (position) => {
-        const data = position.coords.latitude
+        const abc = position.coords.latitude
         const xyz = position.coords.longitude
-        this.props.dispatch(globalActions.getLocationBrand(xyz, data)).then((res) => {
+        this.props.dispatch(globalActions.getLocationBrand(72.555338, 23.049929)).then((res) => {
             let data = res.data
             this.setState({ data })
         })
@@ -71,14 +72,14 @@ class BrandList extends React.Component {
 
     onSearchChange = (abc) => {
         this.props.dispatch(globalActions.getSearch(abc)).then((response) => {
-            let rowData = response.data.brandData;
+            let rowData = response.data.data.brandData;
             this.setState({ rowData });
         });
     }
 
     componentDidMount = () => {
         this.props.dispatch(globalActions.getBrand()).then((res) => {
-            let rowData = res.data;
+            let rowData = res.data.data.brand;
             this.setState({ rowData });
         });
         this.getLocation()
@@ -120,6 +121,7 @@ class BrandList extends React.Component {
                                                         outline
                                                         style={{ borderColor: "#333" }}
                                                         className="mt-4"
+                                                        onClick={() => history.push("/package")}
                                                     >
                                                         <CardHeader className="justify-content-between">
                                                             <div className="card-heading">
@@ -172,8 +174,8 @@ class BrandList extends React.Component {
                                                     </Card>
                                                 </Col>
                                             );
-                                        })
-                                        : "No showroom found near you!"}
+                                        }) :
+                                        "No showroom near found you!"}
                                 </Row>
                             </Col>
                         </CardBody>
