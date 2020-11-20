@@ -121,7 +121,10 @@ class BrandList extends React.Component {
                                                         outline
                                                         style={{ borderColor: "#333" }}
                                                         className="mt-4"
-                                                        onClick={() => history.push("/package")}
+                                                        onClick={() => history.push({
+                                                            pathname: "/package",
+                                                            state: { brandId: item ? item._id : "" }
+                                                        })}
                                                     >
                                                         <CardHeader className="justify-content-between">
                                                             <div className="card-heading">

@@ -21,10 +21,12 @@ export const getLocationBrand = (lng, lat) => async (dispatch) => {
     return response
 }
 
+export const getPackage = (id) => async (dispatch) => {
+    const response = await axios.get(`/package/${id}`)
+    return response
+}
+
 export const getProduct = () => async (dispatch) => {
     const response = await axios.get('/product')
-    if (response) {
-        dispatch({ type: "GET_BRAND", payload: response.data })
-    }
     return response
 }
