@@ -23,6 +23,7 @@ import { connect } from 'react-redux'
 import * as IMG from "../../config/imageConfig";
 import * as globalActions from '../../actions/brandGlobal'
 import ExtraItem from '../item/ExtraItem'
+import Cart from '../cart/CartItem'
 
 class PackageList extends React.Component {
     constructor(props) {
@@ -153,7 +154,7 @@ class PackageList extends React.Component {
                 </Col>
 
                 <Col md="6" sm="12">
-                    <h2>hello</h2>
+                    <Cart addItem1={this.state.arr} dispatch={this.props.dispatch} />
                 </Col>
             </Row >
         )

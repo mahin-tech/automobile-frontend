@@ -30,3 +30,17 @@ export const getProduct = () => async (dispatch) => {
     const response = await axios.get('/product')
     return response
 }
+
+//update Increment Products
+export const getIncProduct = (id, data) => async (dispatch) => {
+    const res = await axios.put(`/edit/inc/product/${id}`, data);
+
+    return res;
+};
+
+//Update Decrement Products
+export const getDecProduct = (id, data) => async (dispatch) => {
+    const res = await axios.put(`/edit/dec/product/${id}`, data);
+
+    return res;
+};

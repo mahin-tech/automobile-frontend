@@ -23,6 +23,7 @@ class ExtraItem extends React.Component {
             formData: {},
             extraPrice: 0,
             total: 0,
+            name: "",
             addItem: this.props.addItem,
         };
     }
@@ -32,24 +33,22 @@ class ExtraItem extends React.Component {
 
             this.setState({ total });
         });
+        let name = abc.itemName;
+        this.setState({ name });
     };
     handleClick = () => {
-        let price = this.state.total;
-        this.props.handleChild(price);
-    };
-    //handleInput
-    handleInput = (event) => {
-        event.persist();
-        this.setState((prevState) => ({
-            formData: {
-                ...prevState.formData,
-                [event.target.name]: event.target.value,
-            },
-        }));
-    };
+        let price = this.state.total
+            ? this.state.total
+            : this.state.addItem.price;
+        let name =
+            this.state.addItem.productName + " Extra Item: " + this.state.name;
+
+        let quantity = this.state.addItem.quantity;
+        let id = this.state.addItem._id;
+        this.props.handleChild(price, name, quantity, id);
+    }
     handleFormSubmit = () => { };
     render() {
-        console.log("darta", this.props)
         const { addItem } = this.state;
         const { addExtraItem } = this.props;
         return (
