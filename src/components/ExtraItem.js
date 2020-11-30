@@ -27,6 +27,8 @@ class ExtraItem extends React.Component {
             addItem: this.props.addItem,
         };
     }
+
+    //Handle Item Data
     handleItem = (abc) => {
         this.setState({ extraPrice: abc.price }, () => {
             const total = +this.state.addItem.price + +this.state.extraPrice;
@@ -36,18 +38,17 @@ class ExtraItem extends React.Component {
         let name = abc.itemName;
         this.setState({ name });
     };
+
     handleClick = () => {
         let price = this.state.total
             ? this.state.total
             : this.state.addItem.price;
-        let name =
-            this.state.addItem.productName + " Extra Item: " + this.state.name;
-
+        let name = this.state.addItem.productName + " Extra Item: " + this.state.name;
         let quantity = this.state.addItem.quantity;
         let id = this.state.addItem._id;
         this.props.handleChild(price, name, quantity, id);
     }
-    handleFormSubmit = () => { };
+
     render() {
         const { addItem } = this.state;
         const { addExtraItem } = this.props;
@@ -122,7 +123,7 @@ class ExtraItem extends React.Component {
                                                             className="mr-1"
                                                             color="primary"
                                                             type="submit"
-                                                            onClick={() => this.handleClick}
+                                                            onClick={() => this.handleClick()}
                                                         >
                                                             Add To Cart
                                                         </Button>

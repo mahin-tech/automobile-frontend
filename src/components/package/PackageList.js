@@ -22,8 +22,9 @@ import {
 import { connect } from 'react-redux'
 import * as IMG from "../../config/imageConfig";
 import * as globalActions from '../../actions/brandGlobal'
-import ExtraItem from '../item/ExtraItem'
-import Cart from '../cart/CartItem'
+import ExtraItem from '../ExtraItem'
+import Cart from '../CartItem'
+import Menu1 from '../../navbar/menu'
 
 class PackageList extends React.Component {
     constructor(props) {
@@ -39,7 +40,7 @@ class PackageList extends React.Component {
             showModal: false,
             comboItem: [],
             item: [],
-            arr: []
+            arr: this.props.data1
         };
     }
 
@@ -50,6 +51,7 @@ class PackageList extends React.Component {
         })
     }
 
+    //Open toogle model for product
     toggleModal = (item) => {
         this.state.rowData &&
             this.state.rowData.map((item) =>
@@ -61,6 +63,12 @@ class PackageList extends React.Component {
         }));
     };
 
+    //Handle Remove Item
+    handleRemove = () => {
+        this.props.dispatch(globalActions.removeItem)
+        window.location.reload()
+    }
+
     handleChild = (price, name, quantity, id) => {
         let cart = {
             price: price,
@@ -71,11 +79,8 @@ class PackageList extends React.Component {
 
         let arr = this.state.arr;
 
-        arr.push({
-            ...cart,
-            count: 1,
-        });
-
+        arr.push({ ...cart, count: 1 });
+        this.props.dispatch(globalActions.saveData(arr))
         this.setState({ arr });
         this.toggleModal();
     };
@@ -83,6 +88,9 @@ class PackageList extends React.Component {
     render() {
         return (
             <Row>
+                <Col sm="12">
+                    <Menu1 />
+                </Col>
                 <Col md="6" sm="12">
                     {this.state.rowData &&
                         this.state.rowData.map((i, index) => {
@@ -101,7 +109,7 @@ class PackageList extends React.Component {
                                                     <div key={index}>
                                                         <CardTitle
                                                             tag="h6"
-                                                            onClick={this.toggleModal}
+                                                            onClick={() => this.toggleModal(item)}
                                                         >
                                                             Product Name: {item.productName}
                                                         </CardTitle>
@@ -154,7 +162,7 @@ class PackageList extends React.Component {
                 </Col>
 
                 <Col md="6" sm="12">
-                    <Cart addItem1={this.state.arr} dispatch={this.props.dispatch} />
+                    <Cart addItem1={this.state.arr} dispatch={this.props.dispatch} removeItem={this.handleRemove} />
                 </Col>
             </Row >
         )
@@ -162,7 +170,9 @@ class PackageList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {}
+    return {
+        data1: state.brandReducer.data
+    }
 }
 
 export default connect(mapStateToProps)(PackageList)

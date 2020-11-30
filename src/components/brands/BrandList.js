@@ -34,6 +34,8 @@ class BrandList extends React.Component {
             searchData: []
         }
     }
+
+    //Get Location
     getLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
@@ -44,6 +46,8 @@ class BrandList extends React.Component {
             alert("hello");
         }
     };
+
+    //Handle Location
     handleLocation = (error) => {
         switch (error.code) {
             case error.PERMISSION_DENIED:
@@ -61,15 +65,18 @@ class BrandList extends React.Component {
             default:
         }
     };
+
+    //Get Coordinates of latitude and longitude
     getCoordinates = (position) => {
         const abc = position.coords.latitude
         const xyz = position.coords.longitude
-        this.props.dispatch(globalActions.getLocationBrand(72.555338, 23.049929)).then((res) => {
+        this.props.dispatch(globalActions.getLocationBrand(abc, xyz)).then((res) => {
             let data = res.data
             this.setState({ data })
         })
     };
 
+    //Get Search Brand
     onSearchChange = (abc) => {
         this.props.dispatch(globalActions.getSearch(abc)).then((response) => {
             let rowData = response.data.data.brandData;
@@ -84,6 +91,7 @@ class BrandList extends React.Component {
         });
         this.getLocation()
     };
+
     render() {
         return (
             <Row>

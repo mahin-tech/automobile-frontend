@@ -4,7 +4,10 @@ import Header from '../components/Header'
 import 'bootstrap/dist/css/bootstrap.css'
 import BrandList from './brands/BrandList'
 import PackageList from './package/PackageList'
+import Register from './Register'
+import Place from './Place'
 import { history } from '../history'
+import { connect } from 'react-redux'
 
 const App = () => {
     return (
@@ -14,10 +17,18 @@ const App = () => {
                 <Switch>
                     <Route path="/" exact component={BrandList} />
                     <Route path="/package" exact component={PackageList} />
+                    <Route path="/register" exact component={Register} />
+                    <Route path="/place" exact component={Place} />
                 </Switch>
             </Router>
         </div>
     )
 }
 
-export default App
+const mapStateToProps = (state) => {
+    return {
+        userInfo: state.brandReducer.userInfo
+    }
+}
+
+export default connect(mapStateToProps)(App)
